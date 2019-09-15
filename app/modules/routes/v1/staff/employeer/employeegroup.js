@@ -30,9 +30,9 @@ async function query(ctx) {
 
 const router = Router();
 const routers = router
-  .post('/add', add)
-  .post('/update', update)
-  .post('/delete', deleteR)
-  .post('/query', query);
+  .post('/', add)
+  .put('/', update)
+  .delete('/', deleteR)
+  .get('/', query);
 
 module.exports = routers;

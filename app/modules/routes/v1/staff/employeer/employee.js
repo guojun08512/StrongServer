@@ -83,15 +83,15 @@ async function queryEmployeeAndCoach(ctx) {
 
 const router = Router();
 const routers = router
-  .post('/add', add)
-  .post('/update', update)
-  .post('/delete', deleteR)
+  .post('/', add)
+  .put('/', update)
+  .delete('/', deleteR)
   .post('/resumeOffice', resumeOffice)
-  .post('/query', query)
-  .post('/queryinfo', employeeInfo)
-  .post('/positionquery', positionQuery)
-  .post('/AdminPositionUpdate', AdminPositionUpdate)
-  .post('/queryEmployeeAndCoach', queryEmployeeAndCoach);
+  .get('/', query)
+  .get('/queryinfo', employeeInfo)
+  .get('/positionquery', positionQuery)
+  .put('/adminPositionUpdate', AdminPositionUpdate)
+  .get('/queryEmployeeAndCoach', queryEmployeeAndCoach);
 
   // .post('/positionadd', positionAdd)
   //

@@ -162,11 +162,11 @@ async function orderTimeSetQuery(ctx) {
 
 const router = Router();
 const routers = router
-  .post('/add', add)
-  .post('/update', update)
-  .post('/delete', deleteR)
+  .post('/', add)
+  .put('/', update)
+  .delete('/', deleteR)
+  .get('/', query)
   .post('/resumeOffice', resumeOffice)
-  .post('/query', query)
   .post('/worktimeupdate', workTimeUpdate)
   .post('/pauseworktimeupdate', pauseWorkTimeUpdate)
   .post('/ordercoach', orderCoach)

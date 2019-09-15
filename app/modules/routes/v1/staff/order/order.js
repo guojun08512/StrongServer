@@ -30,8 +30,8 @@ async function queryEmployeeAchi(ctx) {
 
 const router = Router();
 const routers = router
-  .post('/queryOrderList', queryOrderList)
-  .post('/queryCoachAchi', queryCoachAchi)
-  .post('/queryEmployeeAchi', queryEmployeeAchi);
+  .get('/queryOrderList', queryOrderList)
+  .get('/queryCoachAchi', queryCoachAchi)
+  .get('/queryEmployeeAchi', queryEmployeeAchi);
 
 module.exports = routers;

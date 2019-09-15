@@ -26,7 +26,7 @@ async function deleteCourse(ctx) {
 }
 
 async function queryCourseInfo(ctx) {
-  const courseId = ctx.request.body.courseId;
+  const courseId = ctx.params.courseId;
   const storeid = ctx.headers.storeid;
   const oneCourseInfo = await Course.queryCourseInfo(courseId, storeid);
   ctx.success({ oneCourseInfo }, 'query Course success!');
@@ -47,10 +47,10 @@ async function getAllCourseName(ctx) {
 
 const router = Router();
 const routers = router
-  .post('/add', addCourse)
-  .post('/:courseId/update', updateCourse)
-  .delete('/delete', deleteCourse)
-  .post('/querycourseinfo', queryCourseInfo)
+  .post('/', addCourse)
+  .put('/:courseId', updateCourse)
+  .delete('/', deleteCourse)
+  .get('/:courseId', queryCourseInfo)
   .post('/', getAllCourse)
   .get('/coursename', getAllCourseName);
 

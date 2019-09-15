@@ -44,12 +44,12 @@ async function copy(ctx) {
 
 const router = Router();
 const routers = router
-  .post('/add', add)
-  .post('/update', update)
-  .post('/delete', deleteR)
-  .post('/query', query)
+  .post('/', add)
+  .put('/', update)
+  .delete('/', deleteR)
+  .get('/query', query)
   .post('/copy', copy)
-  .post('/queryResource', queryResource);
+  .get('/queryResource', queryResource);
 
 module.exports = routers;
 
