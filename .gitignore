@@ -1,0 +1,12 @@
+dist
+node_modules
+.DS_Store
+npm-debug.log
+.idea
+package-lock.json
+.vscode
+app/modules/config/config.js
+app/modules/config/db.js
+public/
+
+

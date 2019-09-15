@@ -1,0 +1,46 @@
+version: '2'
+services:
+ nodeServer:
+  image: "data_server"
+  restart: on-failure
+  volumes:
+   - ./nodeServer:/src
+   - ./logs:/logs/
+   - /var/run/docker.sock:/var/run/docker.sock
+  ports:
+   - 8888:8888
+  links:
+   - node-server-mysql:mysql
+   - node-server-redis:redis
+  environment:
+   - CPU_NUM=2
+   - SCHEDULE_NUM=1
+   - HOST_URL=http://127.0.0.1:8888
+   - MYSQL_DB_HOST=mysql
+   - MYSQL_DB_PORT=3306
+   - MYSQL_DB_USER=root
+   - MYSQL_DB_PASSWORD="Xingchao123456"
+   - LOG_DIR=/logs/
+   - SERVER_REDIS_DB_URL=redis://192.168.0.112:6379
+ node-server-mysql:
+  image: mysql/mysql-server:5.7
+  restart: always
+  volumes:
+   - ./mysql:/var/lib/mysql
+   # - ./master/my.cnf:/etc/my.cnf:rw
+  environment:
+   - MYSQL_USER=root
+   - MYSQL_PASSWORD="Xingchao123456"
+   - MYSQL_DATABASE=node_server
+   - MYSQL_ALLOW_EMPTY_PASSWORD=true
+  ports:
+   - 3366:3306
+ node-server-redis:
+  image: redis
+  restart: always
+  command: redis-server --appendonly yes
+  volumes:
+   - ./redis:/data
+  ports:
+   - 6379:6379
+

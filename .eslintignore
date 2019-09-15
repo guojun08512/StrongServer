@@ -1,0 +1,4 @@
+test/utils/
+docker/
+upload/
+app/modules/noteservice
