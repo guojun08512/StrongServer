@@ -33,20 +33,20 @@ async function QueryStore(ctx) {
 }
 
 // 查询区域
-async function queryArea(ctx) {
+async function QueryArea(ctx) {
   const data = ctx.request.body;
   const res = await Manage.queryArea(data);
   ctx.success({ res }, 'queryArea finish!');
 }
 
 // 查询所有场馆信息
-async function queryAllStores(ctx) {
+async function QueryAllStores(ctx) {
   const res = await Manage.queryAllStores(ctx.userInfo.uid);
   ctx.success({ res }, 'queryAllStores finish!');
 }
 
 // 增加场地
-async function addRoom(ctx) {
+async function AddRoom(ctx) {
   const data = ctx.request.body;
   const storeid = ctx.headers.storeid;
   const res = await Manage.addRoom(data, storeid);
@@ -54,21 +54,21 @@ async function addRoom(ctx) {
 }
 
 // 更新场地
-async function updateRoom(ctx) {
+async function UpdateRoom(ctx) {
   const data = ctx.request.body;
   const res = await Manage.updateRoom(data);
   ctx.success({ res }, 'updateRoom finish!');
 }
 
 // 删除场地
-async function delRoom(ctx) {
+async function DelRoom(ctx) {
   const data = ctx.request.body;
   const res = await Manage.delRoom(data);
   ctx.success({ res }, 'delRoom finish!');
 }
 
 // 查询场地信息
-async function queryRoom(ctx) {
+async function QueryRoom(ctx) {
   // const data = ctx.request.body;
   const uid = ctx.params.id;
   const res = await Manage.queryRoom(uid);
@@ -76,7 +76,7 @@ async function queryRoom(ctx) {
 }
 
 // 查询场地信息
-async function queryAllRoom(ctx) {
+async function QueryAllRoom(ctx) {
   const storeid = ctx.headers.storeid;
   const res = await Manage.queryAllRoom(storeid);
   ctx.success({ res }, 'queryAllRoom finish!');
@@ -106,17 +106,17 @@ async function queryAllRoom(ctx) {
 
 const router = Router();
 const routers = router
-  .post('/AddStore', checkSuperAdmin(), AddStore)
-  .put('/UpdateStore', checkRole(), UpdateStore)
-  .delete('/DeleteStore', checkRole(), DeleteStore)
-  .get('/QueryStore', checkRole(), QueryStore)
-  .get('/queryArea', checkRole(), queryArea)
-  .get('/queryAllStores', checkRole(), queryAllStores)
-  .post('/addRoom', checkRole(), addRoom)
-  .put('/updateRoom', checkRole(), updateRoom)
-  .delete('/delRoom', checkRole(), delRoom)
-  .get('/queryRoom/:id', checkRole(), queryRoom)
-  .get('/queryAllRoom', checkRole(), queryAllRoom);
+  .post('/addStore', checkSuperAdmin(), AddStore)
+  .put('/updateStore', checkRole(), UpdateStore)
+  .delete('/deleteStore', checkRole(), DeleteStore)
+  .get('/queryStore', checkRole(), QueryStore)
+  .get('/queryArea', checkRole(), QueryArea)
+  .get('/queryAllStores', checkRole(), QueryAllStores)
+  .post('/addRoom', checkRole(), AddRoom)
+  .put('/updateRoom', checkRole(), UpdateRoom)
+  .delete('/delRoom', checkRole(), DelRoom)
+  .get('/queryRoom/:id', checkRole(), QueryRoom)
+  .get('/queryAllRoom', checkRole(), QueryAllRoom);
   // .post('/queryHWlist', checkRole(), queryHWlist)
   // .post('/updateHardWare', checkRole(), updateHardWare)
   // .post('/queryHardWare', checkRole(), queryHardWare);

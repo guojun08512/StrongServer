@@ -3,35 +3,16 @@ import Router from 'koa-router';
 import { checkRole } from 'modules/middleware/checkpermission';
 
 import userApi from './user';
-
-// import employeeGroupApi from './staff/employeer/employeegroup';
-// import CourseApi from './staff/course/course';
-// import employeeApi from './staff/employeer/employee';
-// import coachGroupApi from './staff/coach/coachgroup';
-// import coachApi from './staff/coach/coach';
-// import groupLessonApi from './staff/course/grouplesson';
-// import orderGroupApi from './staff/order/ordergroup';
-// import permission from './staff/permission';
-// import order from './staff/order/order';
 import staffApi from './staff';
-
-// import memberApi from './customer/member/member';
-// import vipCardApi from './customer/membercard/vipcard';
-// import signinApi from './customer/sign/signin';
-// import experienceApi from './customer/expect/experience';
-// import buyvipcardApi from './customer/buycard/buyvipcard';
-// import memberAnalysis from './customer/member/memberanalysis';
-// import follow from './customer/pursue/follow';
 import customerApi from './customer';
-
-import manageApi from './storage/manage';
+import storageApi from './storage';
 import searchApi from './search';
 import homePageApi from './homepage';
 import uploadApi from './upload/upload';
 import appApi from './app';
 import reportApi from './report';
 import importApi from './import';
-import hardDriverApi from './harddriver';
+// import hardDriverApi from './harddriver';
 
 const router = Router();
 router.use('/users', checkRole(), userApi.routes(), userApi.allowedMethods());
@@ -56,7 +37,7 @@ router.use('/users', checkRole(), userApi.routes(), userApi.allowedMethods());
 router.use('/customer', customerApi.routes(), customerApi.allowedMethods());
 router.use('/staff', staffApi.routes(), staffApi.allowedMethods());
 
-router.use('/manage', manageApi.routes(), manageApi.allowedMethods());
+router.use('/storage', storageApi.routes(), storageApi.allowedMethods());
 router.use('/search', searchApi.routes(), searchApi.allowedMethods());
 router.use('/homepage', checkRole(), homePageApi.routes(), homePageApi.allowedMethods());
 
@@ -64,6 +45,6 @@ router.use('/app', appApi.routes(), appApi.allowedMethods());
 router.use('/upload', checkRole(), uploadApi.routes(), uploadApi.allowedMethods());
 router.use('/report', checkRole(), reportApi.routes(), reportApi.allowedMethods());
 router.use('/import', checkRole(), importApi.routes(), importApi.allowedMethods());
-router.use('/harddriver', hardDriverApi.routes(), hardDriverApi.allowedMethods());
+// router.use('/harddriver', hardDriverApi.routes(), hardDriverApi.allowedMethods());
 
 export default router;

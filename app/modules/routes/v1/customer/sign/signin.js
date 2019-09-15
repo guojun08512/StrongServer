@@ -60,6 +60,6 @@ const routers = router
   .post('/queryMemSigninList', queryMemSigninList)
   .post('/leadingCard', leadingCard)
   .post('/returnCard', returnCard)
-  .post('/', getAllSigninList);
+  .get('/', getAllSigninList);
 
 module.exports = routers;

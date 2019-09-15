@@ -192,7 +192,7 @@ async function updateTimeCardStatus(vcmInfo, curtime) {
 }
 
 async function checkCardStatus() {
-  schedule.scheduleJob('*/1 * * * * *', async () => {
+  schedule.scheduleJob('0 0 * * * *', async () => {
     const allCardCount = await models.VipCardMap.count({
       include: {
         model: models.VipCard,

@@ -50,14 +50,11 @@ export const add = async (data, storeid) => {
   return true;
 };
 
-export const update = async (data, storeid) => {
-  $required('id', data.id);
+export const update = async (id, data, storeid) => {
   $required('name', data.name);
   $required('phone', data.phone);
   $required('employeeId', data.employeeId);
-  // $required('remark', data.remark);
 
-  const id = data.id;
   const name = data.name;
   const phone = data.phone;
   const employeeId = data.employeeId;
@@ -91,10 +88,7 @@ export const update = async (data, storeid) => {
   return true;
 };
 
-export const deleteR = async (data, storeid) => {
-  $required('id', data.id);
-  const id = data.id;
-
+export const deleteRecord = async (id, storeid) => {
   let ret = 0;
   ret = await models.Experience.destroy({ where: { id, storeid } });
   if (!ret) {

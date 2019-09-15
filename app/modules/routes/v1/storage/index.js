@@ -1,8 +1,8 @@
 
 import Router from 'koa-router';
-import PermissionRoleApi from './manage';
+import ManageApi from './manage';
 
 const router = Router();
-router.use('/role', PermissionRoleApi.routes(), PermissionRoleApi.allowedMethods());
+router.use('/manage', ManageApi.routes(), ManageApi.allowedMethods());
 
 export default router;

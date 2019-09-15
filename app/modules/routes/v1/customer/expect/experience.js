@@ -5,62 +5,56 @@ import * as Experience from 'modules/experience';
 
 async function add(ctx) {
   const data = ctx.request.body;
-  const storeid = ctx.headers.storeid;
-  const ret = await Experience.add(data, storeid);
+  const ret = await Experience.add(data, ctx.headers.storeid);
   ctx.success(ret, 'add finish!');
 }
 
 async function update(ctx) {
+  const id = ctx.params.id;
   const data = ctx.request.body;
-  const storeid = ctx.headers.storeid;
-  const ret = await Experience.update(data, storeid);
+  const ret = await Experience.update(id, data, ctx.headers.storeid);
   ctx.success(ret, 'update finish!');
 }
 
-async function deleteR(ctx) {
-  const data = ctx.request.body;
-  const storeid = ctx.headers.storeid;
-  const ret = await Experience.deleteR(data, storeid);
+async function deleteRecord(ctx) {
+  const id = ctx.params.id;
+  const ret = await Experience.deleteRecord(id, ctx.headers.storeid);
   ctx.success(ret, 'delete finish!');
 }
 
 async function query(ctx) {
   const data = ctx.request.body;
-  const storeid = ctx.headers.storeid;
-  const ret = await Experience.getAllData(data, storeid);
+  const ret = await Experience.getAllData(data, ctx.headers.storeid);
   ctx.success(ret, 'query finish!');
 }
 
 async function enter(ctx) {
   const data = ctx.request.body;
-  const storeid = ctx.headers.storeid;
-  const ret = await Experience.enter(data, storeid);
+  const ret = await Experience.enter(data, ctx.headers.storeid);
   ctx.success(ret, 'enter finish!');
 }
 
 async function leave(ctx) {
   const data = ctx.request.body;
-  const storeid = ctx.headers.storeid;
-  const ret = await Experience.leave(data, storeid);
+  const ret = await Experience.leave(data, ctx.headers.storeid);
   ctx.success(ret, 'leave finish!');
 }
 
 async function cancel(ctx) {
   const data = ctx.request.body;
-  const storeid = ctx.headers.storeid;
-  const ret = await Experience.cancel(data, storeid);
+  const ret = await Experience.cancel(data, ctx.headers.storeid);
   ctx.success(ret, 'cancel finish!');
 }
 
 const router = Router();
 const routers = router
-  .post('/add', add)
-  .post('/update', update)
-  .post('/delete', deleteR)
-  .post('/query', query)
+  .post('/', add)
+  .put('/:id', update)
+  .delete('/:id', deleteRecord)
+  .get('/', query)
   .post('/enter', enter)
   .post('/leave', leave)
-  .post('/cancel', cancel);
+  .delete('/cancel', cancel);
 
 module.exports = routers;
 
