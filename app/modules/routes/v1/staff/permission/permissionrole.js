@@ -45,9 +45,9 @@ async function copy(ctx) {
 const router = Router();
 const routers = router
   .post('/', add)
-  .put('/', update)
-  .delete('/', deleteR)
-  .get('/query', query)
+  .put('/:id', update)
+  .delete('/:id', deleteR)
+  .get('/:id', query)
   .post('/copy', copy)
   .get('/queryResource', queryResource);
 

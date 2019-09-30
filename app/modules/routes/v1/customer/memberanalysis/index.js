@@ -49,13 +49,13 @@ async function followList(ctx) {
 
 const router = Router();
 const routers = router
-  .post('/queryMemberSignInfo', queryMemberSignInfo)
-  .post('/orderRecord', queryOrderRecord)
-  .post('/signPrivateLessonRecord', querySignPrivateLessonRecord)
-  .post('/queryMemberVipCard', queryMemberVipCard)
-  .post('/trainingRecordList', trainingRecordList)
-  .post('/contractList', contractList)
-  .post('/followList', followList);
+  .get('/sign', queryMemberSignInfo)
+  .get('/order', queryOrderRecord)
+  .get('/sign/private', querySignPrivateLessonRecord)
+  .get('/memberVipCard', queryMemberVipCard)
+  .get('/training', trainingRecordList)
+  .get('/contract', contractList)
+  .get('/follow', followList);
 
 module.exports = routers;
 

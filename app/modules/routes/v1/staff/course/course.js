@@ -28,13 +28,12 @@ async function deleteCourse(ctx) {
 async function queryCourseInfo(ctx) {
   const courseId = ctx.params.courseId;
   const storeid = ctx.headers.storeid;
-  const oneCourseInfo = await Course.queryCourseInfo(courseId, storeid);
-  ctx.success({ oneCourseInfo }, 'query Course success!');
-}
-
-async function getAllCourse(ctx) {
+  if (courseId) {
+    const oneCourseInfo = await Course.queryCourseInfo(courseId, storeid);
+    ctx.success({ oneCourseInfo }, 'query Course success!');
+    return // eslint-disable-line
+  }
   const data = ctx.request.body;
-  const storeid = ctx.headers.storeid;
   const coursesInfo = await Course.getAllCourse({ ...data }, storeid);
   ctx.success({ coursesInfo }, 'query Course success!');
 }
@@ -51,7 +50,6 @@ const routers = router
   .put('/:courseId', updateCourse)
   .delete('/', deleteCourse)
   .get('/:courseId', queryCourseInfo)
-  .post('/', getAllCourse)
   .get('/coursename', getAllCourseName);
 
 module.exports = routers;

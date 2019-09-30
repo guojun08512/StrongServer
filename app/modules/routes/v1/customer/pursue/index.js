@@ -15,7 +15,7 @@ async function deleteFollow(ctx) {
 
 const router = Router();
 const routers = router
-  .post('/add', add)
-  .delete('/delete', deleteFollow);
+  .post('/', add)
+  .delete('/', deleteFollow);
 
 module.exports = routers;

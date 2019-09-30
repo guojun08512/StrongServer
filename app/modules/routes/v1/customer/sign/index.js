@@ -54,10 +54,10 @@ async function returnCard(ctx) {
 
 const router = Router();
 const routers = router
-  .post('/memberConfirm', memberConfirm)
-  .post('/memberSignin', memberSignin)
-  .post('/cancelMemSignin', cancelMemSignin)
-  .post('/queryMemSigninList', queryMemSigninList)
+  .post('/confirm', memberConfirm)
+  .post('/', memberSignin)
+  .delete('/:id', cancelMemSignin)
+  .get('/:id', queryMemSigninList)
   .post('/leadingCard', leadingCard)
   .post('/returnCard', returnCard)
   .get('/', getAllSigninList);

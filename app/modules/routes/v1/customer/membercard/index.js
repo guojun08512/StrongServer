@@ -93,17 +93,17 @@ async function updatePOnsale(ctx) {
 
 const router = Router();
 const routers = router
-  .post('/addvipcard', addVipCard)
-  .post('/updateVipCard', updateVipCard)
-  .post('/deletevipcard', deleteVipCard)
-  .post('/queryvipcarddetails', queryVipCardDetails)
-  .post('/getAllVipCards', getAllVipCards)
-  .post('/addPrivate', addPrivate)
-  .post('/updatePrivate', updatePrivate)
-  .post('/deletePrivate', deletePrivate)
-  .post('/queryPrivateDetails', queryPrivateDetails)
-  .post('/getAllPrivates', getAllPrivates)
-  .post('/updateVOnsale', updateVOnsale)
-  .post('/updatePOnsale', updatePOnsale);
+  .post('/', addVipCard)
+  .put('/:id', updateVipCard)
+  .delete('/:id', deleteVipCard)
+  .get('/:id', queryVipCardDetails)
+  .get('/', getAllVipCards)
+  .post('/private', addPrivate)
+  .put('/private/:id', updatePrivate)
+  .delete('/private/:id', deletePrivate)
+  .get('/private/:id', queryPrivateDetails)
+  .get('/private', getAllPrivates)
+  .put('/sale/von', updateVOnsale)
+  .put('/sale/pon', updatePOnsale);
 
 module.exports = routers;

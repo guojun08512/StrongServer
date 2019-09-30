@@ -88,14 +88,14 @@ async function orderTimeSetQuery(ctx) {
 const router = Router();
 const routers = router
   .post('/', add)
-  .put('/', update)
-  .delete('/', deleteR)
+  .put('/:id', update)
+  .delete('/:id', deleteR)
   .post('/copy', copy)
   .post('/copyOne', copyOne)
   .post('/clear', clear)
   .post('/sign', sign)
   .post('/cancelSign', cancelSign)
-  .get('/', query)
+  .get('/:id', query)
   .post('/signOk', signOk)
   .post('/orderTimeSet', orderTimeSet)
   .post('/orderTimeSetQuery', orderTimeSetQuery);

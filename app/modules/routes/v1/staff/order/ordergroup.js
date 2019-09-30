@@ -32,9 +32,9 @@ async function sign(ctx) {
 const router = Router();
 const routers = router
   .post('/', add)
-  .delete('/', deleteR)
+  .delete('/:id', deleteR)
   .post('/sign', sign)
-  .get('/', query);
+  .get('/:id', query);
 
 module.exports = routers;
 

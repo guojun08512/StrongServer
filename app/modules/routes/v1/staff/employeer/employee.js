@@ -84,10 +84,10 @@ async function queryEmployeeAndCoach(ctx) {
 const router = Router();
 const routers = router
   .post('/', add)
-  .put('/', update)
-  .delete('/', deleteR)
+  .put('/:id', update)
+  .delete('/:id', deleteR)
   .post('/resumeOffice', resumeOffice)
-  .get('/', query)
+  .get('/:id', query)
   .get('/queryinfo', employeeInfo)
   .get('/positionquery', positionQuery)
   .put('/adminPositionUpdate', AdminPositionUpdate)

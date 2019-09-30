@@ -1,4 +1,4 @@
-swagger: "2.0"
+openapi: 3.0.0
 info:
   # description: "This is a sample server Petstore server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters."
   version: "1.0.0"
@@ -235,7 +235,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /storage/manage/addStore:
+  /storage/manage/:id:
     post:
       tags:
       - "storage/manage"
@@ -256,7 +256,6 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /storage/manage/updateStore:
     put:
       tags:
       - "storage/manage"
@@ -277,7 +276,6 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /storage/manage/deleteStore:
     delete:
       tags:
       - "storage/manage"
@@ -298,7 +296,6 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /storage/manage/queryStore:
     get:
       tags:
       - "storage/manage"
@@ -319,7 +316,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /storage/manage/queryArea:
+  /storage/manage/area:
     get:
       tags:
       - "storage/manage"
@@ -340,28 +337,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /storage/manage/queryAllStores:
-    get:
-      tags:
-      - "storage/manage"
-      summary: "manage/queryAllStores"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /storage/manage/addRoom:
+  /storage/manage/room/:id:
     post:
       tags:
       - "storage/manage"
@@ -382,7 +358,6 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /storage/manage/updateRoom:
     put:
       tags:
       - "storage/manage"
@@ -403,7 +378,6 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /storage/manage/delRoom:
     delete:
       tags:
       - "storage/manage"
@@ -424,7 +398,6 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /storage/manage/queryRoom/:id:
     get:
       tags:
       - "storage/manage"
@@ -445,31 +418,472 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /storage/manage/queryAllRoom:
+  /customer/buycard/MemberBuyVipCard:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/MemberBuyPrivate:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/GiveExperienceCard:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/GivePrivateCard:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/EditVipCard:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/EditPrivateCard:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/RenewalCard:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/RenewalPrivate:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/ChargeCard:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/RecoveryCard:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/TransferCard:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/LeaveCard:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/expiredMember:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/experienceMember:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/depletedMember:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/cabinetMember:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/leaveMember:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/nearFutureCard:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/frequencyCard:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/balanceDeplete:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/birthdayReminding:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/pincardMember:
+    post:
+      tags:
+      - "customer/buycard"
+      summary: "headerInfo"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/buycard/QueryAllBVCard:
     get:
       tags:
-      - "storage/manage"
-      summary: "manage/queryAllRoom"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/MemberBuyVipCard:
-    post:
-      tags:
-      - "customer/headerInfo"
+      - "customer/buycard"
       summary: "headerInfo"
       parameters:
       - in: "header"
@@ -487,451 +901,10 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/MemberBuyPrivate:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/GiveExperienceCard:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/GivePrivateCard:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/EditVipCard:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/EditPrivateCard:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/RenewalCard:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/RenewalPrivate:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/ChargeCard:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/RecoveryCard:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/TransferCard:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/LeaveCard:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/expiredMember:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/experienceMember:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/depletedMember:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/cabinetMember:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/leaveMember:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/nearFutureCard:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/frequencyCard:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/balanceDeplete:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/birthdayReminding:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/pincardMember:
-    post:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/QueryAllBVCard:
+  /customer/buycard/QueryAllBPCard:
     get:
       tags:
-      - "customer/headerInfo"
+      - "customer/buycard"
       summary: "headerInfo"
       parameters:
       - in: "header"
@@ -949,10 +922,10 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/QueryAllBPCard:
+  /customer/buycard/queryAllMembers:
     get:
       tags:
-      - "customer/headerInfo"
+      - "customer/buycard"
       summary: "headerInfo"
       parameters:
       - in: "header"
@@ -970,10 +943,10 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/queryAllMembers:
+  /customer/buycard/queryEffective:
     get:
       tags:
-      - "customer/headerInfo"
+      - "customer/buycard"
       summary: "headerInfo"
       parameters:
       - in: "header"
@@ -991,10 +964,10 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/queryEffective:
+  /customer/buycard/queryPotential:
     get:
       tags:
-      - "customer/headerInfo"
+      - "customer/buycard"
       summary: "headerInfo"
       parameters:
       - in: "header"
@@ -1012,31 +985,10 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/queryPotential:
-    get:
-      tags:
-      - "customer/headerInfo"
-      summary: "headerInfo"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/headerInfo/StopCard:
+  /customer/buycard/StopCard:
     put:
       tags:
-      - "customer/headerInfo"
+      - "customer/buycard"
       summary: "headerInfo"
       parameters:
       - in: "header"
@@ -1198,7 +1150,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/member/registermember:
+  /customer/member/:id:
     post:
       tags:
       - "customer/member"
@@ -1219,8 +1171,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/member/insertdeposit:
-    post:
+    get:
       tags:
       - "customer/member"
       summary: "member"
@@ -1240,8 +1191,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/member/insertearnest:
-    post:
+    put:
       tags:
       - "customer/member"
       summary: "member"
@@ -1261,8 +1211,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/member/insertCabinets:
-    post:
+    delete:
       tags:
       - "customer/member"
       summary: "member"
@@ -1282,7 +1231,190 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/member/trainingfrequency:
+  /customer/member/deposit/:id:
+    post:
+      tags:
+      - "customer/member/deposit"
+      summary: "member"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+    get:
+      tags:
+      - "customer/member/deposit"
+      summary: "member"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+    delete:
+      tags:
+      - "customer/member/deposit"
+      summary: "member"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/member/earnest/:id:
+    post:
+      tags:
+      - "customer/member/earnest"
+      summary: "member"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+    get:
+      tags:
+      - "customer/member/earnest"
+      summary: "member"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+    delete:
+      tags:
+      - "customer/member/earnest"
+      summary: "member"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/member/cabinets/:id:
+    post:
+      tags:
+      - "customer/member/cabinets"
+      summary: "member"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+    get:
+      tags:
+      - "customer/member/cabinets"
+      summary: "member"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+    delete:
+      tags:
+      - "customer/member/cabinets"
+      summary: "member"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse" 
+  /customer/member/trainingFrequency:
     post:
       tags:
       - "customer/member"
@@ -1366,7 +1498,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/member:
+  /customer/member/memberVipCard:
     get:
       tags:
       - "customer/member"
@@ -1387,7 +1519,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/member/querydeposit:
+  /customer/member/memberPrivate:
     get:
       tags:
       - "customer/member"
@@ -1408,7 +1540,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/member/queryearnest:
+  /customer/member/orderList:
     get:
       tags:
       - "customer/member"
@@ -1429,7 +1561,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/member/querymemberinfo/:memberID:
+  /customer/member/signList:
     get:
       tags:
       - "customer/member"
@@ -1450,7 +1582,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/member/getAllDeposits:
+  /customer/member/followList:
     get:
       tags:
       - "customer/member"
@@ -1471,154 +1603,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/member/getAllEarnests:
-    get:
-      tags:
-      - "customer/member"
-      summary: "member"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/member/queryCabinets:
-    get:
-      tags:
-      - "customer/member"
-      summary: "member"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/member/queryMemberVipCard:
-    get:
-      tags:
-      - "customer/member"
-      summary: "member"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/member/queryMemberPrivate:
-    get:
-      tags:
-      - "customer/member"
-      summary: "member"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/member/queryOrderList:
-    get:
-      tags:
-      - "customer/member"
-      summary: "member"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/member/querySigninList:
-    get:
-      tags:
-      - "customer/member"
-      summary: "member"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/member/queryFollowList:
-    get:
-      tags:
-      - "customer/member"
-      summary: "member"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/member/updateMember:
+  /customer/member/rfid:
     put:
       tags:
       - "customer/member"
@@ -1639,7 +1624,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/member/updateAvatar:
+  /customer/member/notify:
     put:
       tags:
       - "customer/member"
@@ -1660,7 +1645,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/member/updaterfid:
+  /customer/member/integral:
     put:
       tags:
       - "customer/member"
@@ -1681,11 +1666,11 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/member/updatenotifymsg:
-    put:
+  /customer/memberanalysis/sign:
+    get:
       tags:
-      - "customer/member"
-      summary: "member"
+      - "customer/memberanalysis"
+      summary: "memberanalysis"
       parameters:
       - in: "header"
         name: "Authorization"
@@ -1702,11 +1687,11 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/member/updateintegral:
-    put:
+  /customer/memberanalysis/order:
+    get:
       tags:
-      - "customer/member"
-      summary: "member"
+      - "customer/memberanalysis"
+      summary: "memberanalysis"
       parameters:
       - in: "header"
         name: "Authorization"
@@ -1723,11 +1708,156 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/member/deleteMember:
+  /customer/memberanalysis/sign/private:
+    get:
+      tags:
+      - "customer/memberanalysis"
+      summary: "memberanalysis"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/memberanalysis/memberVipCard:
+    get:
+      tags:
+      - "customer/memberanalysis"
+      summary: "memberanalysis"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/memberanalysis/training:
+    get:
+      tags:
+      - "customer/memberanalysis"
+      summary: "memberanalysis"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/memberanalysis/contract:
+    get:
+      tags:
+      - "customer/memberanalysis"
+      summary: "memberanalysis"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/memberanalysis/follow:
+    get:
+      tags:
+      - "customer/memberanalysis"
+      summary: "memberanalysis"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/membercard/:id:
+    post:
+      tags:
+      - "customer/membercard"
+      summary: "membercard"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+    put:
+      tags:
+      - "customer/membercard"
+      summary: "membercard"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
     delete:
       tags:
-      - "customer/member"
-      summary: "member"
+      - "customer/membercard"
+      summary: "membercard"
       parameters:
       - in: "header"
         name: "Authorization"
@@ -1744,11 +1874,71 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/member/deletedeposit:
+    get:
+      tags:
+      - "customer/membercard"
+      summary: "membercard"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /customer/membercard/private/:id:
+    post:
+      tags:
+      - "customer/membercard"
+      summary: "membercard"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+    put:
+      tags:
+      - "customer/membercard"
+      summary: "membercard"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
     delete:
       tags:
-      - "customer/member"
-      summary: "member"
+      - "customer/membercard"
+      summary: "membercard"
       parameters:
       - in: "header"
         name: "Authorization"
@@ -1765,197 +1955,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/member/deleteearnest:
-    delete:
-      tags:
-      - "customer/member"
-      summary: "member"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/member/deleteCabinets:
-    delete:
-      tags:
-      - "customer/member"
-      summary: "member"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/memberanalysis/queryMemberSignInfo:
-    post:
-      tags:
-      - "customer/memberanalysis"
-      summary: "memberanalysis"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/memberanalysis/orderRecord:
-    post:
-      tags:
-      - "customer/memberanalysis"
-      summary: "memberanalysis"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/memberanalysis/signPrivateLessonRecord:
-    post:
-      tags:
-      - "customer/memberanalysis"
-      summary: "memberanalysis"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/memberanalysis/queryMemberVipCard:
-    post:
-      tags:
-      - "customer/memberanalysis"
-      summary: "memberanalysis"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/memberanalysis/trainingRecordList:
-    post:
-      tags:
-      - "customer/memberanalysis"
-      summary: "memberanalysis"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/memberanalysis/contractList:
-    post:
-      tags:
-      - "customer/memberanalysis"
-      summary: "memberanalysis"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/memberanalysis/followList:
-    post:
-      tags:
-      - "customer/memberanalysis"
-      summary: "memberanalysis"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/membercard/addvipcard:
-    post:
+    get:
       tags:
       - "customer/membercard"
       summary: "membercard"
@@ -1975,8 +1975,8 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/membercard/updateVipCard:
-    post:
+  /customer/membercard/sale/von:
+    put:
       tags:
       - "customer/membercard"
       summary: "membercard"
@@ -1996,197 +1996,8 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/membercard/deletevipcard:
-    post:
-      tags:
-      - "customer/membercard"
-      summary: "membercard"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/membercard/queryvipcarddetails:
-    post:
-      tags:
-      - "customer/membercard"
-      summary: "membercard"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/membercard/getAllVipCards:
-    post:
-      tags:
-      - "customer/membercard"
-      summary: "membercard"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/membercard/addPrivate:
-    post:
-      tags:
-      - "customer/membercard"
-      summary: "membercard"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/membercard/updatePrivate:
-    post:
-      tags:
-      - "customer/membercard"
-      summary: "membercard"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/membercard/deletePrivate:
-    post:
-      tags:
-      - "customer/membercard"
-      summary: "membercard"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/membercard/queryPrivateDetails:
-    post:
-      tags:
-      - "customer/membercard"
-      summary: "membercard"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/membercard/getAllPrivates:
-    post:
-      tags:
-      - "customer/membercard"
-      summary: "membercard"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/membercard/updateVOnsale:
-    post:
-      tags:
-      - "customer/membercard"
-      summary: "membercard"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/membercard/updatePOnsale:
-    post:
+  /customer/membercard/sale/pon:
+    put:
       tags:
       - "customer/membercard"
       summary: "membercard"
@@ -2247,7 +2058,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/sign:
+  /customer/sign/:id:
     get:
       tags:
       - "customer/sign"
@@ -2268,7 +2079,6 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/sign/memberConfirm:
     post:
       tags:
       - "customer/sign"
@@ -2289,8 +2099,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/sign/memberSignin:
-    post:
+    delete:
       tags:
       - "customer/sign"
       summary: "sign"
@@ -2310,28 +2119,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /customer/sign/cancelMemSignin:
-    post:
-      tags:
-      - "customer/sign"
-      summary: "sign"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /customer/sign/queryMemSigninList:
+  /customer/sign/confirm:
     post:
       tags:
       - "customer/sign"
@@ -2496,7 +2284,91 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /staff/coach/single/worktimeupdate:
+  /staff/coach/single/worktime:
+    put:
+      tags:
+      - "staff/coach/single"
+      summary: "coach/single"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /staff/coach/single//pause/worktime:
+    put:
+      tags:
+      - "staff/coach/single"
+      summary: "coach/single"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /staff/coach/single/position:
+    get:
+      tags:
+      - "staff/coach/single"
+      summary: "coach/single"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /staff/coach/single/privateLesson:
+    get:
+      tags:
+      - "staff/coach/single"
+      summary: "coach/single"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /staff/coach/single/sign/privateLesson/:id:
     post:
       tags:
       - "staff/coach/single"
@@ -2517,7 +2389,68 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /staff/coach/single/pauseworktimeupdate:
+    get:
+      tags:
+      - "staff/coach/single"
+      summary: "coach/single"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+    delete:
+      tags:
+      - "staff/coach/single"
+      summary: "coach/single"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /staff/coach/single/privateLessonTime:
+    get:
+      tags:
+      - "staff/coach/single"
+      summary: "coach/single"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /staff/coach/single/order/:id:
     post:
       tags:
       - "staff/coach/single"
@@ -2538,7 +2471,47 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /staff/coach/single/ordercoach:
+    get:
+      tags:
+      - "staff/coach/single"
+      summary: "coach/single"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+    delete:
+      tags:
+      - "staff/coach/single"
+      summary: "coach/single"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer token"
+        required: true
+      - in: "header"
+        name: "storeid"
+        description: "storeid"
+        required: true
+        schema:
+          $ref: "#/definitions/headerInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /staff/coach/single/order/timeSet:
     post:
       tags:
       - "staff/coach/single"
@@ -2559,218 +2532,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /staff/coach/single/queryordercoach:
-    post:
-      tags:
-      - "staff/coach/single"
-      summary: "coach/single"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /staff/coach/single/positionquery:
-    post:
-      tags:
-      - "staff/coach/single"
-      summary: "coach/single"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /staff/coach/single/signPrivateLesson:
-    post:
-      tags:
-      - "staff/coach/single"
-      summary: "coach/single"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /staff/coach/single/signOkPrivateLesson:
-    post:
-      tags:
-      - "staff/coach/single"
-      summary: "coach/single"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /staff/coach/single/cancelSignPrivateLesson:
-    post:
-      tags:
-      - "staff/coach/single"
-      summary: "coach/single"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /staff/coach/single/querySignPrivateLesson:
-    post:
-      tags:
-      - "staff/coach/single"
-      summary: "coach/single"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /staff/coach/single/deleteOrderCoach:
-    post:
-      tags:
-      - "staff/coach/single"
-      summary: "coach/single"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /staff/coach/single/queryPrivateLessonInfo:
-    post:
-      tags:
-      - "staff/coach/single"
-      summary: "coach/single"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /staff/coach/single/queryCoachPrivateLessonTime:
-    post:
-      tags:
-      - "staff/coach/single"
-      summary: "coach/single"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /staff/coach/single/orderTimeSet:
-    post:
-      tags:
-      - "staff/coach/single"
-      summary: "coach/single"
-      parameters:
-      - in: "header"
-        name: "Authorization"
-        description: "Bearer token"
-        required: true
-      - in: "header"
-        name: "storeid"
-        description: "storeid"
-        required: true
-        schema:
-          $ref: "#/definitions/headerInfo"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-  /staff/coach/single/orderTimeSetQuery:
-    post:
+    get:
       tags:
       - "staff/coach/single"
       summary: "coach/single"
@@ -3789,3 +3551,6 @@ definitions:
         type: "string"
       message:
         type: "string"
+      data:
+        type: "object"
+  # store:

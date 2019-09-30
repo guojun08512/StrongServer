@@ -12,7 +12,7 @@ async function registerMember(ctx) {
 // 修改会员信息
 async function updateMember(ctx) {
   const data = ctx.request.body;
-  const res = await Member.updateMember(data);
+  const res = await Member.updateMember({ memberid: ctx.params.id, ...data });
   ctx.success({ res }, 'updateMember finish!');
 }
 
@@ -21,13 +21,6 @@ async function deleteMember(ctx) {
   const data = ctx.request.body;
   const res = await Member.deleteMember(data);
   ctx.success({ res }, 'deleteMember finish!');
-}
-
-// 上传头像
-async function updateAvatar(ctx) {
-  const data = ctx.request.body;
-  const res = await Member.updateAvatar(data);
-  ctx.success({ res }, 'updateAvatar finish!');
 }
 
 // 查询会员信息
@@ -61,7 +54,7 @@ async function queryDeposit(ctx) {
 // 押金查询
 async function queryEarnest(ctx) {
   const data = ctx.request.body;
-  const res = await Member.queryEarnest(data);
+  const res = await Member.queryEarnest({ memberid: ctx.params.id, ...data });
   ctx.success({ res }, 'queryEarnest finish!');
 }
 
@@ -105,7 +98,7 @@ async function insertCabinets(ctx) {
 // 租柜查询
 async function queryCabinets(ctx) {
   const data = ctx.request.body;
-  const res = await Member.queryCabinets(data);
+  const res = await Member.queryCabinets({ memberid: ctx.params.id, ...data });
   ctx.success({ res }, 'queryCabinets finish!');
 }
 
@@ -212,34 +205,33 @@ async function addWaterRate(ctx) {
 
 const router = Router();
 const routers = router
-  .post('/registermember', registerMember)
-  .put('/updateMember', updateMember)
-  .delete('/deleteMember', deleteMember)
-  .put('/updateAvatar', updateAvatar)
-  .get('/querymemberinfo/:memberID', queryMemberInfo)
-  .post('/insertdeposit', insertDeposit)
-  .post('/insertearnest', insertEarnest)
-  .get('/querydeposit', queryDeposit)
-  .get('/queryearnest', queryEarnest)
-  .delete('/deletedeposit', deleteDeposit)
-  .delete('/deleteearnest', deleteEarnest)
-  .get('/getAllDeposits', getAllDeposits)
-  .get('/getAllEarnests', getAllEarnests)
-  .post('/insertCabinets', insertCabinets)
-  .get('/queryCabinets', queryCabinets)
-  .delete('/deleteCabinets', deleteCabinets)
-  .put('/updaterfid', updateRfid)
-  .put('/updatenotifymsg', updateNotifyMsg)
-  .put('/updateintegral', updateIntegral)
-  .post('/trainingfrequency', trainingfrequency)
+  .post('/', registerMember)
+  .put('/:id', updateMember)
+  .delete('/', deleteMember)
+  .get('/', getAllMembers)
+  .get('/:id', queryMemberInfo)
+  .post('/deposit', insertDeposit)
+  .post('/earnest', insertEarnest)
+  .get('/deposit/:id', queryDeposit)
+  .get('/earnest/:id', queryEarnest)
+  .delete('/deposit', deleteDeposit)
+  .delete('/earnest', deleteEarnest)
+  .get('/deposit', getAllDeposits)
+  .get('/earnest', getAllEarnests)
+  .post('/cabinets', insertCabinets)
+  .get('/cabinets', queryCabinets)
+  .delete('/cabinets', deleteCabinets)
+  .put('/rfid', updateRfid)
+  .put('/notify', updateNotifyMsg)
+  .put('/integral', updateIntegral)
+  .post('/trainingFrequency', trainingfrequency)
   .post('/longTrainingTime', longTrainingTime)
   .post('/fitnessCalendar', fitnessCalendar)
-  .get('/', getAllMembers)
-  .get('/queryMemberVipCard', queryMemberVipCard)
-  .get('/queryMemberPrivate', queryMemberPrivate)
-  .get('/queryOrderList', queryOrderList)
-  .get('/querySigninList', querySigninList)
-  .get('/queryFollowList', queryFollowList)
-  .post('/addWaterRate', addWaterRate);
+  .get('/memberVipCard', queryMemberVipCard)
+  .get('/memberPrivate', queryMemberPrivate)
+  .get('/orderList', queryOrderList)
+  .get('/signList', querySigninList)
+  .get('/followList', queryFollowList)
+  .post('/waterRate', addWaterRate);
 
 module.exports = routers;

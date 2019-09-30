@@ -33,9 +33,9 @@ async function query(ctx) {
 const router = Router();
 const routers = router
   .post('/', add)
-  .put('/', update)
-  .delete('/', deleteR)
-  .get('/', query);
+  .put('/:id', update)
+  .delete('/:id', deleteR)
+  .get('/:id', query);
 
 module.exports = routers;
 
