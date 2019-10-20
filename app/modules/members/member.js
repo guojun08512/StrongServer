@@ -698,23 +698,8 @@ export const getAllMembers = async (data, storeid) => {
   const pdmemberid = data.uid; // 姓名/电话/实体卡号
   const from = data.from; // 来源信息
   const belong = data.belong; // 会籍归属
-  const sex = data.sex; // 性别
 
-  const where = {};
   let include = {};
-  if (from !== '') {
-    where.from = from;
-  }
-  if (belong !== '') {
-    where.belong = belong;
-  }
-  if (sex !== '') {
-    where.sex = sex;
-  }
-  if (pdmemberid !== '') {
-    where.pdmemberid = pdmemberid;
-  }
-  where.storeid = storeid;
 
   include = {
     model: models.PDMember,
@@ -723,11 +708,21 @@ export const getAllMembers = async (data, storeid) => {
   };
   const count = await models.Member.count({
     include,
-    where,
+    where: {
+      from,
+      belong,
+      pdmemberid,
+      storeid,
+    },
   });
   const allMembers = converSqlToJson(await models.Member.findAll({
     include,
-    where,
+    where: {
+      from,
+      belong,
+      pdmemberid,
+      storeid,
+    },
     limit: pageCount,
     offset: (curPage - 1) * pageCount,
     order: [['iid', 'DESC']],
