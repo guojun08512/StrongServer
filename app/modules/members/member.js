@@ -701,14 +701,14 @@ export const getAllMembers = async (data, storeid) => {
 
   const where = {};
   let include = {};
-  if (from !== '' && from !== 'undefined') {
+  if (from !== '' && from !== undefined) {
     where.from = from;
   }
-  if (belong !== '' && belong !== 'undefined') {
+  if (belong !== '' && belong !== undefined) {
     where.belong = belong;
   }
 
-  if (pdmemberid !== '' && pdmemberid !== 'undefined') {
+  if (pdmemberid !== '' && pdmemberid !== undefined) {
     where.pdmemberid = pdmemberid;
   }
   where.storeid = storeid;
