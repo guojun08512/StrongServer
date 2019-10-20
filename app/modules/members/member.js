@@ -698,7 +698,6 @@ export const getAllMembers = async (data, storeid) => {
   const pdmemberid = data.uid; // 姓名/电话/实体卡号
   const from = data.from; // 来源信息
   const belong = data.belong; // 会籍归属
-  const sex = data.sex; // 性别
 
   const where = {};
   let include = {};
