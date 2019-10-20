@@ -20,8 +20,8 @@ async function UpdateStore(ctx) {
 
 // 删除场馆
 async function DeleteStore(ctx) {
-  const storeid = ctx.request.body.storeid;
-  const res = await Manage.DeleteStore(storeid);
+  const storeID = ctx.params.id;
+  const res = await Manage.DeleteStore(storeID);
   ctx.success({ res }, 'DeleteStore finish!');
 }
 
