@@ -1,9 +1,9 @@
-openapi: 3.0.0
+swagger: "2.0"
 info:
   # description: "This is a sample server Petstore server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters."
   version: "1.0.0"
   title: "Node Swagger"
-host: "127.0.0.1:8888"
+host: "47.105.67.223:8888"
 basePath: "/v1"
 schemes:
 - "http"
@@ -316,7 +316,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /storage/manage/area:
+  /storage/manage/area/:parentID:
     get:
       tags:
       - "storage/manage"
