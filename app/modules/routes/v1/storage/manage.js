@@ -34,8 +34,8 @@ async function QueryStore(ctx) {
 
 // 查询区域
 async function QueryArea(ctx) {
-  const data = ctx.request.body;
-  const res = await Manage.queryArea(data);
+  const parentID = ctx.params.parentID;
+  const res = await Manage.queryArea(parentID);
   ctx.success({ res }, 'queryArea finish!');
 }
 
@@ -110,7 +110,7 @@ const routers = router
   .put('/:id', checkRole(), UpdateStore)
   .delete('/:id', checkRole(), DeleteStore)
   .get('/:id', checkRole(), QueryStore)
-  .get('/area', checkRole(), QueryArea)
+  .get('/area/:parentID', checkRole(), QueryArea)
   .get('/', checkRole(), QueryAllStores)
   .post('/room', checkRole(), AddRoom)
   .put('/room/:id', checkRole(), UpdateRoom)

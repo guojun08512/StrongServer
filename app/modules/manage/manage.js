@@ -149,13 +149,12 @@ export const QueryStore = async (storeid) => {
   };
 };
 
-export const queryArea = async (data) => {
-  $required('parentid', data.parentid);
-  const parentid = data.parentid; // id
+export const queryArea = async (parentID) => {
+  $required('parentID', parentID);
 
   const allAreas = await models.Area.findAll({
     where: {
-      parentid,
+      parentid: parentID,
     },
   });
   return allAreas;
