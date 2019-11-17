@@ -337,7 +337,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/ApiResponse"
-  /storage/manage/room/:id:
+  /storage/room/:id:
     post:
       tags:
       - "storage/manage"
