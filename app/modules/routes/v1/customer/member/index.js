@@ -209,7 +209,7 @@ const routers = router
   .put('/:id', updateMember)
   .delete('/', deleteMember)
   .get('/', getAllMembers)
-  .get('/:id', queryMemberInfo)
+  .get('/:memberID', queryMemberInfo)
   .post('/deposit', insertDeposit)
   .post('/earnest', insertEarnest)
   .get('/deposit/:id', queryDeposit)
