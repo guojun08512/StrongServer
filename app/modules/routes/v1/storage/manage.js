@@ -32,54 +32,17 @@ async function QueryStore(ctx) {
   ctx.success({ res }, 'QueryStore finish!');
 }
 
+// 查询all场馆
+async function QueryAllStore(ctx) {
+  const res = await Manage.queryAllStores(ctx.userInfo.uid);
+  ctx.success({ res }, 'QueryStore finish!');
+}
+
 // 查询区域
 async function QueryArea(ctx) {
   const parentID = ctx.params.parentID;
   const res = await Manage.queryArea(parentID);
   ctx.success({ res }, 'queryArea finish!');
-}
-
-// 查询所有场馆信息
-async function QueryAllStores(ctx) {
-  const res = await Manage.queryAllStores(ctx.userInfo.uid);
-  ctx.success({ res }, 'queryAllStores finish!');
-}
-
-// 增加场地
-async function AddRoom(ctx) {
-  const data = ctx.request.body;
-  const storeid = ctx.headers.storeid;
-  const res = await Manage.addRoom(data, storeid);
-  ctx.success({ res }, 'addRoom finish!');
-}
-
-// 更新场地
-async function UpdateRoom(ctx) {
-  const data = ctx.request.body;
-  const res = await Manage.updateRoom(data);
-  ctx.success({ res }, 'updateRoom finish!');
-}
-
-// 删除场地
-async function DelRoom(ctx) {
-  const data = ctx.request.body;
-  const res = await Manage.delRoom(data);
-  ctx.success({ res }, 'delRoom finish!');
-}
-
-// 查询场地信息
-async function QueryRoom(ctx) {
-  // const data = ctx.request.body;
-  const uid = ctx.params.id;
-  const res = await Manage.queryRoom(uid);
-  ctx.success({ res }, 'queryRoom finish!');
-}
-
-// 查询场地信息
-async function QueryAllRoom(ctx) {
-  const storeid = ctx.headers.storeid;
-  const res = await Manage.queryAllRoom(storeid);
-  ctx.success({ res }, 'queryAllRoom finish!');
 }
 
 // // 请求list
@@ -110,13 +73,8 @@ const routers = router
   .put('/:id', checkRole(), UpdateStore)
   .delete('/:id', checkRole(), DeleteStore)
   .get('/:id', checkRole(), QueryStore)
-  .get('/area/:parentID', checkRole(), QueryArea)
-  .get('/', checkRole(), QueryAllStores)
-  .post('/room', checkRole(), AddRoom)
-  .put('/room/:id', checkRole(), UpdateRoom)
-  .delete('/room:id', checkRole(), DelRoom)
-  .get('/room/:id', checkRole(), QueryRoom)
-  .get('/room', checkRole(), QueryAllRoom);
+  .get('/', checkRole(), QueryAllStore)
+  .get('/area/:parentID', checkRole(), QueryArea);
   // .post('/queryHWlist', checkRole(), queryHWlist)
   // .post('/updateHardWare', checkRole(), updateHardWare)
   // .post('/queryHardWare', checkRole(), queryHardWare);
