@@ -42,7 +42,7 @@ async function employeeInfo(ctx) {
   const storeid = ctx.headers.storeid;
   const authorization = ctx.headers.authorization;
   const ret = await Employee.getEmployeeInfo(data, storeid, authorization);
-  ctx.success(ret, 'query finish!');
+  ctx.success(ret, 'employeeInfo query finish!');
 }
 
 async function AdminPositionUpdate(ctx) {
@@ -87,7 +87,7 @@ const routers = router
   .put('/:id', update)
   .delete('/:id', deleteR)
   .post('/resumeOffice', resumeOffice)
-  .get('/:id', query)
+  .get('/', query)
   .get('/queryinfo', employeeInfo)
   .get('/positionquery', positionQuery)
   .put('/adminPositionUpdate', AdminPositionUpdate)

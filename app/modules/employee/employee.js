@@ -299,7 +299,7 @@ export const getEmployeeInfo = async (data, storeid, authorization) => {
     item.images = (item.images && JSON.parse(item.images)) || [];
     retdata.push(item);
   }
-
+  // console.log({ count: totalCount, employees: retdata });
   return { count: totalCount, employees: retdata };
 };
 
