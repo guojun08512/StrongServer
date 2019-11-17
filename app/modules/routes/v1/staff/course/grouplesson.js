@@ -95,7 +95,7 @@ const routers = router
   .post('/clear', clear)
   .post('/sign', sign)
   .post('/cancelSign', cancelSign)
-  .get('/:id', query)
+  .get('/', query)
   .post('/signOk', signOk)
   .post('/orderTimeSet', orderTimeSet)
   .post('/orderTimeSetQuery', orderTimeSetQuery);
