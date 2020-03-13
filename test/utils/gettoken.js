@@ -1,8 +1,0 @@
-
-import { getAuthInfo } from 'modules/users';
-
-const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJjNGYzMDY1YS0xZDVkLTRmNjktYTM3Ny1jZDNkY2RhNTY5YzMiLCJ1c2VybmFtZSI6InRlc3QiLCJpYXQiOjE1NDI0MzIxOTksImV4cCI6MTU0MzAzNjk5OX0.mCQsamuP3fXGbHYkNHIE-WZzmw9BXbfgfw0d7NluE9s';
-console.log(getAuthInfo(token))
-
-const token1 = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJjNGYzMDY1YS0xZDVkLTRmNjktYTM3Ny1jZDNkY2RhNTY5YzMiLCJ1c2VybmFtZSI6InRlc3QiLCJpYXQiOjE1NDI0MzIxOTksImV4cCI6MTU0MzAzNjk5OX0.mCQsamuP3fXGbHYkNHIE-WZzmw9BXbfgfw0d7NluE9s';
-console.log(getAuthInfo(token1))
